@@ -1,0 +1,77 @@
+<div>
+  <h1>lrc</h1>
+  <h2>lrc</h2>
+  <!-- <span *ngFor="let item of homeTitle"><button onclick="" [title]=item>{{item}}</button></span> -->
+  <!-- <ul>
+    <li *ngFor="let item of items; let key=index;">
+        {{key}}---{{item}}
+    </li>
+  </ul> -->
+  <!-- <p *ngIf="flag">this is a flag!</p> -->
+
+  <!-- <span [ngSwitch]="switchStatus">
+  <p *ngSwitchCase="1">
+  
+  </p>
+  <p *ngSwitchCase="2">
+  
+  </p>
+  <p *ngSwitchDefault>
+  
+  </p>
+  </span> -->
+
+  <!-- <div [ngClass]="{'red': true, 'blue': false, 'green': !ifFlag}"> class test</div> -->
+
+  <!-- <p [ngStyle]="{'color': 'red'}"></p> -->
+
+  <!-- {{today | date:'yyyy-MM-dd HH:mm:ss'}} -->
+
+  <!-- <input type="text" (keydown)="keyDown($event)"> -->
+  
+  <!-- 双向数据绑定只针对表单 -->
+  <!-- <input type="text" [(ngModel)]="txtData"> {{txtData}}
+  <button (click)="buttonChangeTxt()">changeTxt</button> -->
+  
+</div>
+
+<button (click)="homeRun()" title="Home">Home</button>
+<button (click)="diaryRun()" title="Diary">Diary</button>
+
+<br>
+<hr>
+
+<h2>新的日志</h2>
+<div class="diaryClass">
+  <ul>
+    <li>主题：<input type="text" [(ngModel)]="diaryInfo.theme"></li>
+
+    <li>性别：
+      <input type="radio" value="1" id="male" [(ngModel)]="peopleSex"><label for="male">男</label>
+      <input type="radio" value="2" id="female"  [(ngModel)]="peopleSex"><label for="female">女</label>
+    </li>
+
+    <li>心情：
+      <select name="mood" id="mood" [(ngModel)]="diaryInfo.mood">
+        <option [value]="item" *ngFor="let item of diaryInfo.moodList">{{item}}</option>
+      </select>
+    </li>
+
+    <li>爱好：
+      <span *ngFor="let item of diaryInfo.hoppyList; let hoppyKey=index;">
+          <input type="checkbox" [id]="'hoppy'+hoppyKey" [(ngModel)]="item.status"><label [for]="'hoppy'+hoppyKey">{{item.hoppy}}</label>
+      </span>
+    </li>
+
+    <li>内容：
+      <textarea name="diaryData" id="diaryData" cols="30" rows="10" [(ngModel)]="diaryInfo.data"></textarea>
+    </li>
+  </ul>
+
+  <button (click)="saveDiary()" class="saveDiary">保存</button>
+
+  
+</div>
+
+<p>diaryInfo:{{diaryInfo | json}}</p>
+<p>peopleSex:{{peopleSex}}</p>
